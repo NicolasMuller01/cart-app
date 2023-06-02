@@ -1,26 +1,31 @@
-import React from 'react'
-import { getProducts } from '../services/productService'
-import { useState, useEffect } from 'react'
-import { CatalogItem } from './CatalogItem'
+import { useEffect, useState } from "react";
+import { getProducts } from "../services/productService";
+import { ProductCardView } from "./ProductCardView";
 
-export const CatalogView = () => {
+export const CatalogView = ({ handler }) => {
 
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        setProducts(getProducts());
-    }, [products])
-
+    useEffect(
+        () => {
+            setProducts(getProducts());
+        }, []);
     return (
         <>
-            <h3>Cart App</h3>
-            <div className='row'>
+            <div className="row">
                 {products.map(prod => (
-                    <div className='col' key={prod.id}>
-                        <CatalogItem prod={prod}></CatalogItem>
+                    <div className="col-4 my-2"
+                        key={prod.id}>
+                        <ProductCardView
+                            handler={ handler }
+                            id={prod.id}
+                            name={prod.name}
+                            description={prod.description}
+                            price={prod.price}
+                        />
                     </div>
                 ))}
             </div>
         </>
-    )
+    );
 }
