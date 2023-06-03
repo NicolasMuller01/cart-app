@@ -12,9 +12,6 @@ export const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink className={'nav-link'} to="/">Home</NavLink>
-                        </li>
-                        <li className="nav-item">
                             <NavLink className={'nav-link'} to="/catalog">Catalog</NavLink>
                         </li>
                         <li className="nav-item">

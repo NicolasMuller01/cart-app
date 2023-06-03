@@ -5,7 +5,6 @@ export const ProductCardView = ({ handler, id, name, description, price }) => {
     const navigate = useNavigate();
 
     const onAddProduct = (product) => {
-        console.log(product);
         handler(product);
         navigate('/cart');
     }
